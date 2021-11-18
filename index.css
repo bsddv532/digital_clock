@@ -8,7 +8,6 @@
     width: 100%;
     margin: auto;
     background: #3D087B;
-/*     padding-left: 0%; */
     box-sizing: border-box;
     padding-bottom: 5%;
     display: flex;
@@ -68,12 +67,15 @@ hr{
 
 #unique{
     width: 570px;
-    height:65px;
+    /* height:65px; */
+    padding: 20px;
     background:#FFFFFF 0% 0% no-repeat padding-box;
-    color: white;
-    opacity: 0.23;
+    color: black;
+    opacity: 0.5;
     margin-top: 20px;
-    border-radius: 10px;    
+    border-radius: 10px; 
+    display: none; 
+    font-size: 25px;
 }
 
 #settime{
