@@ -9,7 +9,7 @@
     margin: auto;
     background: #3D087B;
     box-sizing: border-box;
-    padding-bottom: 5%;
+    padding-bottom: 2%;
     display: flex;
     justify-content: space-around;
 }
@@ -66,11 +66,12 @@ hr{
 }
 
 #unique{
-    width: 570px;
-    /* height:65px; */
+    width: 490px;
     padding: 20px;
-    background:#FFFFFF 0% 0% no-repeat padding-box;
+    padding-left: 60px;
+    background:#FFFFFF;
     color: black;
+    font-weight: bold;
     opacity: 0.5;
     margin-top: 20px;
     border-radius: 10px; 
@@ -100,8 +101,10 @@ hr{
     padding-top: 15px;
     padding-bottom: 15px;
     border-radius: 10px;
-    width: 536px;
+    width: 630px;
     box-sizing: border-box;
+    height: 120px;
+    position: relative;
 }
 
 .clock-time{
@@ -149,16 +152,17 @@ hr{
     margin-left: 5px;
     margin-right: 5px;
 }
-/* 
-.extra1 {
-    background: white;
-    height: 20px;
-    width: 379px;
+
+/* .extra1 {
+    background: black;
+    height: 100%;
+    width: 70%;
     position: absolute;
-    right: 220px;
-    top: 54%;
+    margin: auto;
+    top: 20px;
     border-radius: 10px;
-    opacity: 0.22;
+    opacity: 0.71;
+    z-index: -2;
 }
     
 .extra2{
@@ -170,23 +174,36 @@ hr{
     top: 48%;
     border-radius: 10px;
     opacity: 0.71;
+    z-index: -3
 }  */
 
 #card{
-    background: white;
     margin-top: 50px;
-    border-radius: 10px;
-    width: 536px;
+    width: 100%;
+    position: relative;
 }
 
 #about-image{
     color: #8e53f0;
-    font-size: 35px;
+    font-size: 40px;
     font-family:cursive;
     font-weight: bold;
     text-align: center;
+    background: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-bottom: 2px;
 }
+     
 
 #card-image{
-    text-align: center;
+    width: 100%;
+    height: 450px;
+    background-image: url("./images/hacker.jpg");
+    background-position: center;
+    background-size: 100% 100%;
+    background: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-repeat: no-repeat;
 }

@@ -10,7 +10,7 @@ function currentTime(){
     }
     if(hh >= 12){
         session = "PM";
-        // hh = hh - 12;
+        hh = hh - 12;
     }
 
     hh = (hh < 10) ? "0" + hh : hh;
@@ -27,150 +27,68 @@ function currentTime(){
     setTimeout(function(){ 
         currentTime();
     }, 1000);
-}
 
+
+    var mo = document.getElementById("wakeup-time").value;
+    var lu = document.getElementById("lunch-time").value;
+    var na = document.getElementById("nap-time").value;
+    var hours = new Date().getHours();
+
+
+    //if((mo == "default")&&(lu == "default")&&(na == "default")){
+    if((mo != hours)&&(lu != hours)&&(na != hours)){
+        document.getElementById("card-image").style.backgroundImage = "url(./images/hacker.jpg)";
+        document.getElementById("about-image").innerText="PLEASE SET YOUR TIME";
+    }
+ 
+}
 currentTime();
 
 
-function setAlarm(){
-    
-    var wakeup = document.getElementById("wakeup-time").value;
-    var lunch = document.getElementById("lunch-time").value;
-    var nap = document.getElementById("nap-time").value;
 
+function printMessage(){
     var msg = document.getElementById("unique");
-    var txt = document.getElementById("about-image");
-    var pic = document.getElementById("card-image");
+    msg.style.display = "block";
 
-    function wakeup_msg(){
-        if((wakeup == "default")&&(lunch == "default")&&(nap == "default")){
-            msg.style.display = "block";
-            msg.innerText = "Please set the time first";
-            txt.innerText = "HAVE A GOOD DAY";
-            // pic.src = "D:\PREPBYTES\project\digital_clock\images\wakeup_image.svg"
-            // document.getElementById("card-image").src = "./images/default.png";
-            // dc.getelmntbyid("card-image"). style =img.scr="./images/default.png";
-        }
-        else{
-            // msg.innerText = "The Wakeup Time is" + wakeup;
+    var wakeup = document.getElementById("wakeup-time");
+    var value = wakeup.options[wakeup.selectedIndex].text;
 
-            const element = document.createElement("h4");
-            element.setAttribute("class","heading1");
-            element.innerText = "The Wakeup Time is " + wakeup;
-            // console.log(element);
-            msg.appendChild(element);
-            msg.style.display = "block";
-        }
-    }
+    var lunch = document.getElementById("lunch-time");
+    var value2 = lunch.options[lunch.selectedIndex].text;
 
+    var nap = document.getElementById("nap-time");
+    var value3 = nap.options[nap.selectedIndex].text;
 
-    function lunch_msg(){
-        if((wakeup == "default")&&(lunch == "default")&&(nap == "default")){
-            msg.style.display = "block";
-            msg.innerText = "Please set the time first";
-        }
-        else{
-            const element = document.createElement("h4");
-            element.setAttribute("class","heading2");
-            element.innerText = "The Lunch Time is " + lunch;
-            msg.appendChild(element);
-            msg.style.display = "block";
-        }
-    }
-
-
-    function nap_msg(){
-        if((wakeup == "default")&&(lunch == "default")&&(nap == "default")){
-            msg.style.display = "block";
-            msg.innerText = "Please set the time first";
-        }
-        else{
-            const element = document.createElement("h4");
-            element.setAttribute("class","heading3");
-            element.innerText = "The Nap Time is " + nap;
-            msg.appendChild(element);
-            msg.style.display = "block";
-        }
-    }
-
-    wakeup_msg();
-    lunch_msg();
-    nap_msg();
-
-
-
+    msg.innerText= "WAKE UP TIME IS " + value + "\n" + "LUNCH TIME IS " + value2 + "\n" + "NAP TIME IS " + value3;
 }
 
 
+function setAlarm(){
+    var mo = document.getElementById("wakeup-time").value;
+    var lu = document.getElementById("lunch-time").value;
+    var na = document.getElementById("nap-time").value;
 
+    var hour = new Date().getHours();
 
-// function setAlarm(){
-//     let date = new Date(); 
-//     let hh = date.getHours();
-//     let mm = date.getMinutes();
-//     let ss = date.getSeconds();
-//     let session = "AM";
+    if(mo == hour){
+        document.getElementById("card-image").style.backgroundImage = "url(./images/wakeup_image.svg)";
+        document.getElementById("about-image").innerText="GOOD MORNING FRIENDS";
+    }
 
-//     var wakeup = document.getElementById("wakeup-time").value;
-//     var lunch = document.getElementById("lunch-time").value;
-//     var nap = document.getElementById("nap-time").value;
+    else if(lu == hour){
+        document.getElementById("card-image").style.backgroundImage = "url(./images/lunch_image.svg)";
+        document.getElementById("about-image").innerText="LET'S HAVE SOME LUNCH";
+    }
 
-//     var msg = document.getElementById("unique");
-//     var txt = document.getElementById("about-image");
-//     var pic = document.getElementById("card-image");
+    else if(na == hour){
+        document.getElementById("card-image").style.backgroundImage = "url(./images/goodnight_image.svg)";
+        document.getElementById("about-image").innerText="THIS IS THE BED TIME";
+    }
 
-//     function wakeup_msg(){
-//         f((wakeup == "default"){
-//             msg.style.display = "block";
-//             msg.innerText = "Please set the time first";
-//             txt.innerText = "HAVE A GOOD DAY";
-//             // pic.src = "D:\PREPBYTES\project\digital_clock\images\wakeup_image.svg"
-//             // document.getElementById("card-image").src = "./images/default.png";
-//             dc.getelmntbyid("card-image"). style =img.scr="./images/default.png";
-//         }
-//         else{
-//             // msg.innerText = "The Wakeup Time is" + wakeup;
+    else{
+        document.getElementById("card-image").style.backgroundImage = "url(./images/hacker.jpg)";
+        document.getElementById("about-image").innerText="PLEASE SET YOUR TIME";
+    }
 
-//             const element = document.createElement("h4");
-//             element.setAttribute("class","heading1");
-//             element.innerText = "The Wakeup Time is " + wakeup;
-//             // console.log(element);
-//             msg.appendChild(element);
-//             msg.style.display = "block";
-//         }
-//     }
-
-
-//     function lunch_msg(){
-//         if((wakeup == "default")&&(lunch == "default")&&(nap == "default")){
-//             msg.style.display = "block";
-//             msg.innerText = "Please set the time first";
-//         }
-//         else{
-//             const element = document.createElement("h4");
-//             element.setAttribute("class","heading2");
-//             element.innerText = "The Lunch Time is " + lunch;
-//             msg.appendChild(element);
-//             msg.style.display = "block";
-//         }
-//     }
-
-
-//     function nap_msg(){
-//         if((wakeup == "default")&&(lunch == "default")&&(nap == "default")){
-//             msg.style.display = "block";
-//             msg.innerText = "Please set the time first";
-//         }
-//         else{
-//             const element = document.createElement("h4");
-//             element.setAttribute("class","heading3");
-//             element.innerText = "The Nap Time is " + nap;
-//             msg.appendChild(element);
-//             msg.style.display = "block";
-//         }
-//     }
-
-//     wakeup_msg();
-//     lunch_msg();
-//     nap_msg();
-// }
+    printMessage();
+}
